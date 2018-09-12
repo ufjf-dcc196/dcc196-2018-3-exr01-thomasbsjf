@@ -12,12 +12,15 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     public static final String PESSOA_NOME = "nome";
-    public static final String ALUNO_MATRICULA = "siape";
-    private static final int REQUEST_SIAPE = 1;
+    public static final String ALUNO_MATRICULA = "matricula";
+    public static final String SERVIDOR_SIAPE = "siape";
+    public static final String EXTERNO_EMAIL= "email";
     private static final int REQUEST_MATRICULA = 1;
-    private static final int QTD_ALUNO = 0;
-    private static final int QTD_SERVIDOR = 0;
-    private static final int QTD_EXTERNO = 0;
+    private static final int REQUEST_SIAPE = 2;
+    private static final int REQUEST_EMAIL = 3;
+    private int QTD_ALUNO = 0;
+    private int QTD_SERVIDOR = 0;
+    private int QTD_EXTERNO = 0;
     private Button btnAluno, btnServidor, btnExterno;
     private TextView txtQtdAluno, txtQtdServidor, txtQtdExterno, txtMensagem;
     private EditText edt_nome;
@@ -27,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtMensagem = (TextView)findViewById(R.id.mensagem_txt);
         edt_nome = (EditText)findViewById(R.id.edt_nome);
         btnAluno = findViewById(R.id.btn_aluno);
         btnServidor = findViewById(R.id.btn_servidor);
@@ -51,10 +53,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == MainActivity.REQUEST_SIAPE && resultCode == Activity.RESULT_OK && data != null) {
+        if(requestCode == MainActivity.REQUEST_MATRICULA && resultCode == Activity.RESULT_OK && data != null) {
+
             Bundle bundleResultado = data.getExtras();
-            String matricula = bundleResultado.getString(MainActivity.ALUNO_MATRICULA);
-            txtMensagem.setText("Olá aluno de Matrícula: " + matricula);
+            if(bundleResultado.isEmpty()){
+                return;
+            }
+            switch (requestCode){
+                case MainActivity.REQUEST_MATRICULA:
+                    String matricula = bundleResultado.getString(MainActivity.ALUNO_MATRICULA);
+                    QTD_ALUNO++;
+                    txtQtdAluno.setText("Quantidade de alunos: " + Integer.toString(QTD_ALUNO));
+                    break;
+                case MainActivity.REQUEST_SIAPE:
+                    String siape = bundleResultado.getString(MainActivity.SERVIDOR_SIAPE);
+                    QTD_SERVIDOR++;
+                    txtQtdServidor.setText("Quantidade de servidores: " + Integer.toString(QTD_SERVIDOR));
+                    break;
+                case MainActivity.REQUEST_EMAIL:
+                    String email = bundleResultado.getString(MainActivity.EXTERNO_EMAIL);
+                    QTD_SERVIDOR++;
+                    txtQtdServidor.setText("Quantidade de servidores: " + Integer.toString(QTD_EXTERNO));
+                    break;
+            }
+
         }
     }
 }
