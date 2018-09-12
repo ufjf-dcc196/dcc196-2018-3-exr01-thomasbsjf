@@ -7,7 +7,7 @@
     tools:context=".AlunoActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtAlunoMensagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -35,10 +35,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="@+id/txtAlunoMensagem" />
 
     <Button
-        android:id="@+id/btn_confirma"
+        android:id="@+id/btn_aluno_confirma"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -50,5 +50,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="@+id/txtAlunoMensagem" />
 </android.support.constraint.ConstraintLayout>

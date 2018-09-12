@@ -15,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
     public static final String ALUNO_MATRICULA = "siape";
     private static final int REQUEST_SIAPE = 1;
     private static final int REQUEST_MATRICULA = 1;
+    private static final int QTD_ALUNO = 0;
+    private static final int QTD_SERVIDOR = 0;
+    private static final int QTD_EXTERNO = 0;
     private Button btnAluno, btnServidor, btnExterno;
     private TextView txtQtdAluno, txtQtdServidor, txtQtdExterno, txtMensagem;
     private EditText edt_nome;
@@ -50,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(requestCode == MainActivity.REQUEST_SIAPE && resultCode == Activity.RESULT_OK && data != null) {
             Bundle bundleResultado = data.getExtras();
-            String siape = bundleResultado.getString(MainActivity.ALUNO_MATRICULA);
-            txtMensagem.setText("Olá professor de SIAPE: " + siape);
+            String matricula = bundleResultado.getString(MainActivity.ALUNO_MATRICULA);
+            txtMensagem.setText("Olá aluno de Matrícula: " + matricula);
         }
     }
 }
