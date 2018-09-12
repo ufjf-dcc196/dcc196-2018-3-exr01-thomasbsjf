@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AlunoActivity" />
+        <activity android:name=".ServidorActivity" />
+        <activity android:name=".ExternoActivity"></activity>
     </application>
 
 </manifest>
