@@ -17,7 +17,7 @@ public class ExternoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aluno);
+        setContentView(R.layout.activity_externo);
 
         txtExternoMensagem = (TextView)findViewById(R.id.txtExternoMensagem);
         btnExternoConfirma = (Button)findViewById(R.id.btn_confirma_externo);

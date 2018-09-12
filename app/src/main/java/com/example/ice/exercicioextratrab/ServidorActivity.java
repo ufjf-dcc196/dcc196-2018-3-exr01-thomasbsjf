@@ -18,10 +18,10 @@ public class ServidorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aluno);
+        setContentView(R.layout.activity_servidor);
 
-        txtServidorMensagem = (TextView)findViewById(R.id.txtAlunoMensagem);
-        btnServidorConfirma = (Button)findViewById(R.id.btn_aluno_confirma);
+        txtServidorMensagem = (TextView)findViewById(R.id.txtServidorMensagem);
+        btnServidorConfirma = (Button)findViewById(R.id.btn_confirma_servidor);
         edtTextSiape = (EditText)findViewById(R.id.edt_siape);
 
         Bundle extras = getIntent().getExtras();
@@ -34,7 +34,7 @@ public class ServidorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent resultado = new Intent();
-                resultado.putExtra(MainActivity.ALUNO_MATRICULA, edtTextSiape.getText().toString());
+                resultado.putExtra(MainActivity.SERVIDOR_SIAPE, edtTextSiape.getText().toString());
                 setResult(Activity.RESULT_OK, resultado);
 
                 finish();

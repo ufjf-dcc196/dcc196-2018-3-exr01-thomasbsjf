@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private int QTD_SERVIDOR = 0;
     private int QTD_EXTERNO = 0;
     private Button btnAluno, btnServidor, btnExterno;
-    private TextView txtQtdAluno, txtQtdServidor, txtQtdExterno, txtMensagem;
+    private TextView txtQtdAluno, txtQtdServidor, txtQtdExterno;
     private EditText edt_nome;
 
     @Override
@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case MainActivity.REQUEST_EMAIL:
                     String email = bundleResultado.getString(MainActivity.EXTERNO_EMAIL);
-                    QTD_SERVIDOR++;
-                    txtQtdServidor.setText("Quantidade de servidores: " + Integer.toString(QTD_EXTERNO));
+                    QTD_EXTERNO++;
+                    txtQtdExterno.setText("Quantidade de servidores: " + Integer.toString(QTD_EXTERNO));
                     break;
 
                     default:
