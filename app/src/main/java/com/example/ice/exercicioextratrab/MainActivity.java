@@ -47,13 +47,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnServidor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ServidorActivity.class);
+                intent.putExtra(PESSOA_NOME, edt_nome.getText().toString());
+                startActivityForResult(intent, MainActivity.REQUEST_SIAPE);
+            }
+        });
+
+        btnExterno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ExternoActivity.class);
+                intent.putExtra(PESSOA_NOME, edt_nome.getText().toString());
+                startActivityForResult(intent, MainActivity.REQUEST_EMAIL);
+            }
+        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == MainActivity.REQUEST_MATRICULA && resultCode == Activity.RESULT_OK && data != null) {
+        if(resultCode == Activity.RESULT_OK && data != null) {
 
             Bundle bundleResultado = data.getExtras();
             if(bundleResultado.isEmpty()){
@@ -75,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
                     QTD_SERVIDOR++;
                     txtQtdServidor.setText("Quantidade de servidores: " + Integer.toString(QTD_EXTERNO));
                     break;
+
+                    default:
+                        break;
             }
 
         }

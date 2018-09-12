@@ -22,7 +22,7 @@ public class ServidorActivity extends AppCompatActivity {
 
         txtServidorMensagem = (TextView)findViewById(R.id.txtAlunoMensagem);
         btnServidorConfirma = (Button)findViewById(R.id.btn_aluno_confirma);
-        edtTextSiape = (EditText)findViewById(R.id.edt_matricula_aluno);
+        edtTextSiape = (EditText)findViewById(R.id.edt_siape);
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
